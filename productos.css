@@ -1,0 +1,12 @@
+.main-container{
+    background-color: #eee;
+}
+.fondo{
+    background-color: azure;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.container{
+    margin-left: 140px;
+}

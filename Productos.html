@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZapatoStock</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="productos.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    
+</head>
+<body>
+    <div class="sidebar">
+            <div class="top">
+                <div class="logo">
+                    <i class="bx bxl-codepen"></i>
+                    <span>ZapatoStock</span>
+                </div>
+                <i class="bx bx-menu" id="btn"></i>
+            </div>
+        
+        <div class="user">
+            <img src="img/img.jpg" alt="yo" class="user-img">
+            <div>
+                <p class="bold">Santiago Montoya</p>
+                <p>Admin</p>
+            </div>
+        </div>
+        <ul>
+            <li>
+                <a href="index.html">
+                    <i class="bx bxs-grid-alt"></i>
+                    <span class="nav-item">Panel</span>
+                </a>
+                <span class="tooltip">Panel</span>
+            </li>
+
+            <li>
+                <a href="Productos.html">
+                    <i class="bx bxs-shopping-bag"></i>
+                    <span class="nav-item">Productos</span>
+                </a>
+                <span class="tooltip">Productos</span>
+            </li>
+
+            <li> 
+                <a href="">
+                    <i class='bx bxs-cart-alt' ></i>
+                    <span class="nav-item">Ventas</span>
+                </a>
+                <span class="tooltip">Ventas</span>
+            </li>
+
+            <li> 
+                <a href="">
+                    <i class="bx bx-list-check"></i>
+                    <span class="nav-item">Categorías</span>
+                </a>
+                <span class="tooltip">Categorías</span>
+            </li>
+
+            <li> 
+                <a href="">
+                    <i class="bx bx-body"></i>
+                    <span class="nav-item">Clientes</span>
+                </a>
+                <span class="tooltip">Clientes</span>
+            </li>
+
+            <li> 
+                <a href="">
+                    <i class='bx bxs-wallet'></i>
+                    <span class="nav-item">Cajas</span>
+                </a>
+                <span class="tooltip">Cajas</span>
+            </li>
+
+            <li> 
+                <a href="">
+                    <i class="bx bx-cog"></i>
+                    <span class="nav-item">Config</span>
+                </a>
+                <span class="tooltip">Config</span>
+            </li>
+
+            <li> 
+                <a href="">
+                    <i class="bx bx-log-out"></i>
+                    <span class="nav-item">Cerrar Sesión</span>
+                </a>
+                <span class="tooltip">Cerrar Sesión</span>
+            </li>
+
+        </ul>
+    </div>
+
+
+    <div class="container mt-5 fondo">
+        <h2 class="mb-4">Agregar Nuevo Producto</h2>
+        <form class="d-flex flex-wrap">
+            <div class="form-group col-md-6 mb-3">
+                <label for="modelo" class="form-label">Modelo</label>
+                <input type="text" class="form-control" id="modelo" name="modelo" placeholder="Ingrese el modelo del producto" required>
+            </div>
+    
+            <div class="form-group col-md-6 mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese el nombre del producto" required>
+            </div>
+    
+            <div class="form-group col-md-6 mb-3">
+                <label for="marca" class="form-label">Marca</label>
+                <input type="text" class="form-control" id="marca" name="marca" placeholder="Ingrese la marca del producto" required>
+            </div>
+    
+            <div class="form-group col-md-6 mb-3">
+                <label for="color" class="form-label">Color</label>
+                <input type="text" class="form-control" id="color" name="color" placeholder="Ingrese el color del producto" required>
+            </div>
+    
+            <div class="form-group col-md-6 mb-3">
+                <label for="talla" class="form-label">Talla</label>
+                <input type="text" class="form-control" id="talla" name="talla" placeholder="Ingrese la talla del producto" required>
+            </div>
+    
+            <div class="form-group col-md-6 mb-3">
+                <label for="tipo_zapato" class="form-label">Categoría</label>
+                <select class="form-select" id="tipo_zapato" name="tipo_zapato" required>
+                    <option value="">Seleccione la Categoría</option>
+                    <option value="Zapatos">Zapatos</option>
+                    <option value="Tenis">Tenis</option>
+                    <option value="Botas">Botas</option>
+                    <option value="Tacones">Tacones</option>
+                    <option value="Huaraches">Huaraches</option>
+                </select>
+            </div>
+    
+            <div class="form-group col-md-6 mb-3">
+                <label for="genero" class="form-label">Género</label>
+                <select class="form-select" id="genero" name="genero" required>
+                    <option value="">Seleccione el género</option>
+                    <option value="Mujer">Mujer</option>
+                    <option value="Hombre">Hombre</option>
+                    <option value="Niño">Niño</option>
+                    <option value="Niña">Niña</option>
+                </select>
+            </div>
+    
+            <div class="form-group col-md-6 mb-3">
+                <label for="precio_compra" class="form-label">Precio de Compra</label>
+                <input type="number" class="form-control" id="precio_compra" name="precio_compra" step="0.01" placeholder="Ingrese el precio de compra" required>
+            </div>
+    
+            <div class="form-group col-md-6 mb-3">
+                <label for="precio_venta" class="form-label">Precio de Venta</label>
+                <input type="number" class="form-control" id="precio_venta" name="precio_venta" step="0.01" placeholder="Ingrese el precio de venta" required>
+            </div>
+    
+            <div class="form-group col-md-6 mb-3">
+                <label for="stock" class="form-label">Stock</label>
+                <input type="number" class="form-control" id="stock" name="stock" placeholder="Ingrese la cantidad de stock" required>
+            </div>
+    
+            <div class="form-group col-md-6 mb-3">
+                <label for="nombre_proveedor" class="form-label">Nombre del Proveedor</label>
+                <input type="text" class="form-control" id="nombre_proveedor" name="nombre_proveedor" placeholder="Ingrese el nombre del proveedor" required>
+            </div>
+    
+            <div class="form-group col-md-6 mb-3">
+                <label for="imagen" class="form-label">Imagen</label>
+                <input type="file" class="form-control" id="imagen" name="imagen">
+            </div>
+    
+            <div class="form-group col-md-6 mb-3">
+                <label for="codigo_de_barras" class="form-label">Código de Barras</label>
+                <input type="text" class="form-control" id="codigo_de_barras" name="codigo_de_barras" placeholder="Ingrese el código de barras" required>
+            </div>
+    
+            <div class="form-group col-md-6 mb-3">
+                <label for="fecha_registro" class="form-label">Fecha de Registro</label>
+                <input type="datetime-local" class="form-control" id="fecha_registro" name="fecha_registro" required>
+            </div>
+    
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Agregar Producto</button>
+                <br>
+            </div>
+            
+        </form>
+    </div>
+    <br>    
+
+    
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script>
+    let btn = document.querySelector('#btn');
+    let sidebar = document.querySelector('.sidebar');
+
+    btn.onclick = function (){
+        sidebar.classList.toggle('active');
+    };
+    // Función para agregar tallas dinámicamente
+    document.getElementById('agregarTallaBtn').addEventListener('click', function() {
+            let nuevaTalla = document.getElementById('nuevaTalla').value;
+            let listaTallas = document.getElementById('listaTallas');
+
+            if (nuevaTalla && nuevaTalla >= 1 && nuevaTalla <= 100) {
+                // Crear un div contenedor para la talla y el campo de cantidad
+                let div = document.createElement('div');
+                div.classList.add('col-md-6');
+
+                // Crear el label de la talla
+                let labelTalla = document.createElement('label');
+                labelTalla.innerText = `Talla ${nuevaTalla}`;
+                labelTalla.classList.add('form-label');
+
+                // Crear el campo de cantidad para la talla agregada
+                let inputCantidad = document.createElement('input');
+                inputCantidad.type = 'number';
+                inputCantidad.classList.add('form-control');
+                inputCantidad.placeholder = `Cantidad para talla ${nuevaTalla}`;
+                inputCantidad.min = '0';
+                inputCantidad.name = `cantidadTalla${nuevaTalla}`;
+
+                // Agregar el label y el input al div
+                div.appendChild(labelTalla);
+                div.appendChild(inputCantidad);
+
+                // Agregar el div con la nueva talla a la lista de tallas
+                listaTallas.appendChild(div);
+
+                // Limpiar el campo de la nueva talla
+                document.getElementById('nuevaTalla').value = '';
+            } else {
+                alert("Por favor, ingresa una talla válida entre 1 y 100.");
+            }
+        });
+</script>
+</html>

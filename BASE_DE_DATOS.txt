@@ -1,0 +1,93 @@
+CREATE DATABASE Zapateria;
+USE zapateria;
+
+-- Tabla: Empleados
+CREATE TABLE Empleados (
+    ID_empleado INT PRIMARY KEY AUTO_INCREMENT,
+    tipo_de_usuario ENUM('Admin', 'Cajero', 'Vendedor'),
+    nombre VARCHAR(100),
+    apellido VARCHAR(100),
+    fecha_nacimiento DATE,
+    num_telefono VARCHAR(20),
+    correo VARCHAR(100),
+    contraseña TEXT
+);
+
+-- Tabla: Productos
+CREATE TABLE Productos (
+    ID_producto INT PRIMARY KEY AUTO_INCREMENT,
+    modelo VARCHAR(100),
+    nombre VARCHAR(100),
+    marca VARCHAR(100),
+    color VARCHAR(50),
+    talla VARCHAR(10),
+    tipo_zapato ENUM('Zapatos', 'Tenis', 'Botas', 'Tacones', 'Huaraches' ),
+    genero ENUM('Mujer', 'Hombre', 'Niño', 'Niña'),
+    precio_compra DECIMAL(10, 2),
+    precio_venta DECIMAL(10, 2),
+    stock INT,
+    nombre_proveedor VARCHAR(75),
+    imagen BLOB,
+    codigo_de_barras VARCHAR(100),
+    fecha_registro DATETIME
+);
+
+-- Tabla: Categorías
+CREATE TABLE Categorias (
+    ID_categoria INT PRIMARY KEY AUTO_INCREMENT,
+    tipo_zapato ENUM('Zapatos', 'Tenis', 'Botas', 'Tacones', 'Huaraches' ),
+    genero ENUM('Mujer', 'Hombre', 'Niño', 'Niña')
+);
+
+-- Tabla: Ventas
+CREATE TABLE Ventas (
+    ID_venta INT PRIMARY KEY AUTO_INCREMENT,
+    ID_empleado INT,
+    fecha_venta DATETIME,
+    cantidad_producto INT,
+    id_producto INT,
+    precio_unitario DECIMAL(10, 2),
+    total_venta DECIMAL(10, 2),
+    codigo_de_barras VARCHAR(100),
+    FOREIGN KEY (ID_empleado) REFERENCES Empleados(ID_empleado),
+    FOREIGN KEY (id_producto) REFERENCES Productos(ID_producto)
+);
+
+-- Tabla: Ubicación
+CREATE TABLE Ubicacion (
+    ID_ubicacion INT PRIMARY KEY AUTO_INCREMENT,
+    ID_producto INT,
+    bodega VARCHAR(50),
+    estante VARCHAR(50),
+    columna VARCHAR(50),
+    pasillo VARCHAR(50),
+    FOREIGN KEY (ID_producto) REFERENCES Productos(ID_producto)
+);
+
+
+
+-- Tabla: Cambios
+CREATE TABLE Cambios (
+    ID_cambios INT PRIMARY KEY AUTO_INCREMENT,
+    ID_venta INT,
+    id_producto INT,
+    precio DECIMAL(10, 2),
+    motivo VARCHAR(255),
+    estado_prod VARCHAR(50),
+    diferencia  DECIMAL(10, 2),
+    ID_NuevaVenta INT,
+    fecha_cambio DATETIME,
+    FOREIGN KEY (ID_NuevaVenta) REFERENCES Ventas(ID_venta),
+    FOREIGN KEY (ID_venta) REFERENCES Ventas(ID_venta),
+    FOREIGN KEY (id_producto) REFERENCES Productos(ID_producto)
+);
+
+-- Tabla: Proveedores
+CREATE TABLE Proveedores (
+    ID_proveedor INT PRIMARY KEY AUTO_INCREMENT,
+    nombre_proveedor VARCHAR(100),
+    num_telefono VARCHAR(20),
+    correo VARCHAR(100),
+    direccion VARCHAR(255)
+);
+

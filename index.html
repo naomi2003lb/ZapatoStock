@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZapatoStock</title>
+    <link rel="stylesheet" href="main.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+    <div class="sidebar">
+            <div class="top">
+                <div class="logo">
+                    <i class="bx bxl-codepen"></i>
+                    <span>ZapatoStock</span>
+                </div>
+                <i class="bx bx-menu" id="btn"></i>
+            </div>
+        
+        <div class="user">
+            <img src="img/img.jpg" alt="yo" class="user-img">
+            <div>
+                <p class="bold">Santiago Montoya</p>
+                <p>Admin</p>
+            </div>
+        </div>
+        <ul>
+            <li>
+                <a href="index.html">
+                    <i class="bx bxs-grid-alt"></i>
+                    <span class="nav-item">Panel</span>
+                </a>
+                <span class="tooltip">Panel</span>
+            </li>
+
+            <li>
+                <a href="Productos.html">
+                    <i class="bx bxs-shopping-bag"></i>
+                    <span class="nav-item">Productos</span>
+                </a>
+                <span class="tooltip">Productos</span>
+            </li>
+
+            <li> 
+                <a href="">
+                    <i class='bx bxs-cart-alt' ></i>
+                    <span class="nav-item">Ventas</span>
+                </a>
+                <span class="tooltip">Ventas</span>
+            </li>
+
+            <li> 
+                <a href="">
+                    <i class="bx bx-list-check"></i>
+                    <span class="nav-item">Categorías</span>
+                </a>
+                <span class="tooltip">Categorías</span>
+            </li>
+
+            <li> 
+                <a href="">
+                    <i class="bx bx-body"></i>
+                    <span class="nav-item">Clientes</span>
+                </a>
+                <span class="tooltip">Clientes</span>
+            </li>
+
+            <li> 
+                <a href="">
+                    <i class='bx bxs-wallet'></i>
+                    <span class="nav-item">Cajas</span>
+                </a>
+                <span class="tooltip">Cajas</span>
+            </li>
+
+            <li> 
+                <a href="">
+                    <i class="bx bx-cog"></i>
+                    <span class="nav-item">Config</span>
+                </a>
+                <span class="tooltip">Config</span>
+            </li>
+
+            <li> 
+                <a href="">
+                    <i class="bx bx-log-out"></i>
+                    <span class="nav-item">Cerrar Sesión</span>
+                </a>
+                <span class="tooltip">Cerrar Sesión</span>
+            </li>
+
+        </ul>
+    </div>
+
+
+    <div class="main-content">
+        <div class="container">
+            <h1>Inventario Digital</h1>
+            <p>Hola este es nuestro nuevo inventario digital</p>
+            <div class="matr">
+                <div class="tarjeta tarjeta-azul">Productos <span>0</span></div>
+                <div class="tarjeta tarjeta-amarilla">Total Ventas <span>0</span></div>
+                <div class="tarjeta tarjeta-roja"> Total Ganancias <span>0</span></div>
+                <div class="tarjeta tarjeta-verde">Productos Poco Stock <span>0</span></div>
+                <div class="tarjeta tarjeta-gris">Ventas del dia <span>0</span></div>
+            </div>
+            <div class="gráficos">
+                <div class="chart">
+                    <h2>Ventas del Mes: S/. 0.00</h2>
+                    <canvas id="ventasChart"></canvas>
+                </div>
+                <div class="chart">
+                    <h2>Compras del Mes: S/. 0.00</h2>
+                    <canvas id="comprasChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script>
+    let btn = document.querySelector('#btn');
+    let sidebar = document.querySelector('.sidebar');
+
+    btn.onclick = function (){
+        sidebar.classList.toggle('active');
+    };
+
+        // Simulación de gráficos usando Chart.js
+    window.onload = function() {
+        const ctxVentas = document.getElementById('ventasChart').getContext('2d');
+        const ventasChart = new Chart(ctxVentas, {
+            type: 'line',
+            data: {
+                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+                datasets: [{
+                    label: 'Ventas del Mes',
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    backgroundColor: 'rgba(58, 186, 255, 0.2)',
+                    borderColor: 'rgba(58, 186, 255, 1)',
+                    borderWidth: 1
+                }]
+            }
+        });
+
+        const ctxCompras = document.getElementById('comprasChart').getContext('2d');
+        const comprasChart = new Chart(ctxCompras, {
+            type: 'line',
+            data: {
+                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+                datasets: [{
+                    label: 'Compras del Mes',
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    backgroundColor: 'rgba(255, 193, 7, 0.2)',
+                    borderColor: 'rgba(255, 193, 7, 1)',
+                    borderWidth: 1
+                }]
+            }
+        });
+    };
+
+</script>
+</html>
